@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 @SpringBootApplication
 public class AddressBookAppApplication {
+	
 
     public static void main(String[] args) {
         SpringApplication.run(AddressBookAppApplication.class, args);
@@ -55,8 +56,16 @@ public class AddressBookAppApplication {
         addressBook.addContact(contact);
 
         // Display all contacts
+        System.out.println("\n--- All Contacts ---");
+
         addressBook.displayAllContacts();
 
-        scanner.close();
+        System.out.println("\n--- Edit Contact ---");
+        System.out.print("Enter First Name of contact to edit: ");
+        String nameToEdit = scanner.nextLine();
+        addressBook.editContact(nameToEdit, scanner);
+        System.out.println("\n--- Updated Contacts ---");
+        addressBook.displayAllContacts();
+   
     }
 }
